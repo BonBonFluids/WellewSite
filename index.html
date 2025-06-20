@@ -3,47 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wellew - Your Personal Nutrition Coach</title>
+    <title>Wellew - Free and Uninterrupted</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/images/favicon.png" type="image/png">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="features.html">Features</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <main>
-        <section class="hero">
-            <h1>Wellew: Your Personal Nutrition Coach</h1>
-            <p>Track your meals, get personalized insights, and achieve your health goals with Wellew.</p>
-            <button>Sign Up Now</button>
-        </section>
+    <section class="hero-section">
+        <video autoplay loop muted playsinline class="hero-video-bg">
+            <source src="assets/videos/LandingVideo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
 
-        <section class="features-overview">
-            <h2>Key Features</h2>
-            <div>
-                <h3>Personalized Meal Plans</h3>
-                <p>Get meal plans tailored to your dietary needs and preferences.</p>
-            </div>
-            <div>
-                <h3>Progress Tracking</h3>
-                <p>Monitor your progress and stay motivated on your health journey.</p>
-            </div>
-            <div>
-                <h3>Expert Coaching</h3>
-                <p>Connect with certified nutritionists for expert guidance and support.</p>
-            </div>
-        </section>
-    </main>
+        <header class="site-header">
+            <a href="/" class="logo-link">
+                <img src="assets/images/NEW-LOGO-WW.png" alt="Wellew Logo" class="logo-img">
+                <span class="site-name">Wellew</span>
+            </a>
+            <a href="#try" class="btn btn-primary">TRY WELLEW</a>
+        </header>
 
-    <footer>
-        <p>&copy; 2024 Wellew. All rights reserved.</p>
-    </footer>
+        <div class="hero-content">
+            <h1 class="hero-headline">
+                Free and<br>Uninterrupted
+            </h1>
+            <div class="hero-cta-container">
+                <a href="#learn-more" class="btn btn-secondary">LEARN MORE</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Placeholder for content below the hero section to enable scrolling -->
+    <div style="min-height: 1000px; background-color: #f0f0f0; padding: 50px 20px;">
+        <h2 id="learn-more" style="padding-top: 80px; margin-bottom: 20px;">More Content Starts Here...</h2>
+        <p>This is where the rest of your page content will go.</p>
+        <p>Scroll up and down to see the header and video effects.</p>
+        <div style="height: 500px;"></div> {/* Extra space */}
+        <h2 id="try" style="margin-top: 50px;">Try Section...</h2>
+         <p>This is where the try section/pricing table might be linked.</p>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
