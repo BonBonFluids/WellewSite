@@ -317,3 +317,145 @@ body {
         padding: 8px 18px;
     }
 }
+
+/* ================================================ */
+/* General Styles for Content Pages (about, contact, features) */
+/* ================================================ */
+
+/* General Body and Typography */
+body {
+    /* font-family, line-height, color already set at the top */
+    background-color: #FFFFFF; /* Default white background for content pages */
+}
+
+/* General Main Content Styling for non-index pages */
+.content-page-main {
+    max-width: 960px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #FFFFFF;
+}
+
+/* Standard Heading Styles */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+    color: #333; /* Standard heading color */
+    margin-top: 1.5em;
+    margin-bottom: 0.7em;
+}
+h1 { font-size: 2.2em; }
+h2 { font-size: 1.8em; }
+h3 { font-size: 1.4em; }
+
+/* Paragraph Styling */
+p {
+    margin-bottom: 1em;
+    color: #555; /* Slightly lighter than pure black for readability */
+}
+
+/* General Link Styling */
+/* This will apply to links outside of specifically styled components like headers/buttons */
+a {
+    color: #3B4B5F; /* Using the primary button color from header for links */
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+    color: #2c3848; /* Darker shade on hover */
+}
+
+/* Static Header for content pages (about.html, contact.html, features.html) */
+.static-page-header {
+    background-color: #3B4B5F; /* Dark background */
+    padding: 1rem 0;
+    text-align: center;
+}
+.static-page-header nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+.static-page-header nav ul li {
+    margin: 0 15px;
+}
+.static-page-header nav ul li a {
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.static-page-header nav ul li a:hover,
+.static-page-header nav ul li a.active {
+    color: #FFD700; /* Highlight color */
+    text-decoration: none;
+}
+
+/* Footer Styling (Global) */
+footer {
+    background-color: #333;
+    color: #f0f0f0;
+    text-align: center;
+    padding: 25px 20px;
+    margin-top: 40px;
+    font-size: 0.9rem;
+}
+footer p { /* Overriding general p style for footer */
+    margin-bottom: 0;
+    color: #f0f0f0;
+}
+
+/* General Button Styling for content pages */
+/* Base .btn is already defined. This is for specific buttons on content pages. */
+.btn-content-primary {
+    background-color: #3B4B5F;
+    color: #fff;
+    /* Inherits padding, border-radius etc. from .btn */
+}
+.btn-content-primary:hover {
+    background-color: #2c3848;
+}
+
+/* Specific Content Sections (e.g., for features.html) */
+.features-overview-item {
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-left: 5px solid #3B4B5F; /* Accent color */
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+.features-overview-item h3 {
+    margin-top: 0; /* Remove top margin for h3 inside this item */
+    color: #3B4B5F;
+}
+
+/* Responsive Design Adjustments for Content Pages */
+@media (max-width: 768px) {
+    .static-page-header nav ul {
+        flex-direction: column; /* Stack nav items */
+    }
+    .static-page-header nav ul li {
+        margin: 10px 0;
+    }
+    .content-page-main {
+        margin: 10px auto; /* Reduced margin for smaller screens */
+        padding: 15px;    /* Reduced padding */
+    }
+    h1 { font-size: 2em; }
+    h2 { font-size: 1.6em; }
+    h3 { font-size: 1.3em; }
+}
+
+@media (max-width: 480px) {
+    .content-page-main {
+        margin: 0 auto; /* Full width on very small screens, padding provides spacing */
+        padding: 10px;
+    }
+    h1 { font-size: 1.8em; }
+    h2 { font-size: 1.4em; }
+    h3 { font-size: 1.2em; }
+}
