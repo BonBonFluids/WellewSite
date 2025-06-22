@@ -44,156 +44,140 @@ body {
     opacity: 0.7;
 }
 
+/* Utility Classes for Header Visibility */
+.header-is-hidden {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transform: translateY(-10px); /* Optional: slight movement for fade */
+}
 
-/* Header Styling */
-.site-header {
+.header-is-visible {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transform: translateY(0); /* Optional: slight movement for fade */
+}
+
+
+/* Main Wide Header Styling (#site-header-main) */
+#site-header-main {
     position: fixed;
     z-index: 100;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    /* Initial State (Full Width, Transparent, Slightly down) */
     top: 20px;
     left: 0;
     width: 100%;
-    transform: translateX(0) translateY(0) scale(1); /* Added scale and translateY for fade transition */
     padding: 0 25px;
     background-color: transparent;
     border-radius: 0;
     box-shadow: none;
-    opacity: 1; /* Initial opacity for full header */
-
-    /* Transitions - Note: transform is now more complex */
-    transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1),
-                background-color 0.4s ease-out,
-                padding 0.4s ease-out,
-                box-shadow 0.4s ease-out,
-                width 0.4s cubic-bezier(0.25, 0.1, 0.25, 1),
-                left 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), /* Still needed if width changes */
-                border-radius 0.4s cubic-bezier(0.25, 0.1, 0.25, 1),
-                top 0.4s ease-out,
-                opacity 0.3s ease-out; /* Added opacity transition */
+    opacity: 1; /* Start visible */
+    pointer-events: auto;
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out; /* Only fade opacity and optional transform */
 }
 
-/* Scrolled state for the header - Bubble Style */
-.site-header.scrolled {
-    /* Position and Size for Bubble */
-    width: auto;
-    max-width: 230px;
-    left: 50%; /* For horizontal centering with transform */
-    top: 15px;
-    transform: translateX(-50%) translateY(0) scale(1); /* Centered and scaled */
-
-    /* Appearance for Bubble */
-    background-color: rgba(40, 45, 55, 0.65);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    padding: 8px 10px; /* Adjusted padding for bubble */
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
-    border-radius: 50px;
-    opacity: 1; /* Make it visible */
-    gap: 8px; /* ADDED: Space between logo-link and btn-primary */
-}
-
-/* For the fade-from-center effect, we set initial scrolled state opacity and scale */
-/* This will apply when JS *adds* .scrolled, but before the transition fully kicks in if it were just CSS hover */
-/* However, since JS toggles the class, the main .site-header transitions handle this. */
-/* We want the *initial* .site-header to fade *out* and the .scrolled version to fade *in*. */
-/* One way is to have two headers, or more simply, transition opacity and transform on the single header. */
-
-/* When .scrolled is NOT present (initial header state for fading out) */
-.site-header:not(.scrolled) {
-    /* opacity controlled by base .site-header style */
-    /* transform controlled by base .site-header style */
-}
-
-/* When .scrolled IS present (bubble header fading in) */
-/* The base transition on .site-header handles the animation from non-scrolled to scrolled state.
-   To make it appear to fade *from the center*, we ensure its initial state when the class
-   is *about* to be added is appropriately set if we were doing a pure CSS appear.
-   However, with JS, the transitions on the .site-header will animate from the
-   full-width state to the bubble state.
-
-   The key is that the `left`, `width`, `transform`, `opacity` transitions on the
-   base .site-header class will handle the animation when .scrolled is added/removed.
-   The `transform: translateX(-50%)` combined with `left: 50%` in the .scrolled state
-   will make it animate *towards* the center as it changes width.
-   The opacity change is handled by the opacity transition.
-*/
-
-
-.logo-link {
+#site-header-main .logo-link {
     display: flex;
     align-items: center;
     text-decoration: none;
     color: #fff;
-    transition: opacity 0.3s ease-out;
 }
 
-.logo-img {
+#site-header-main .logo-img {
     height: 35px;
-    /* margin-right: 8px; /* Removed, using gap on parent now */
-    transition: height 0.4s ease-out;
+    margin-right: 8px; /* Keep margin for site name spacing */
 }
 
-.site-header.scrolled .logo-img {
-    height: 28px;
-    /* margin-right: 0; /* Not needed due to parent gap and site-name hidden */
-}
-
-.site-name {
+#site-header-main .site-name {
     font-size: 1.5em;
     font-weight: 700;
     color: #fff;
     white-space: nowrap;
-    transition: font-size 0.4s ease-out,
-                opacity 0.2s ease-out,
-                visibility 0s linear 0.2s,
-                width 0.2s ease-out 0.05s,
-                margin-left 0.2s ease-out 0.05s, /* Changed from margin-right */
-                padding-left 0.2s ease-out 0.05s;
 }
 
-.site-header.scrolled .site-name {
-    font-size: 0;
-    opacity: 0;
-    visibility: hidden;
-    width: 0;
-    margin-left: 0; /* Changed from margin-right */
-    padding-left: 0;
-    overflow: hidden;
-}
-
-/* Action button in the header */
-.site-header .btn-primary {
+#site-header-main .btn-primary {
     background-color: #3B4B5F;
     color: #fff;
     white-space: nowrap;
-    transition: padding 0.4s ease-out,
-                font-size 0.4s ease-out,
-                background-color 0.3s ease,
-                color 0.3s ease,
-                transform 0.2s ease,
-                box-shadow 0.2s ease;
+    /* Transitions for hover effects, not for scroll state change */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
-.site-header .btn-primary:hover {
+#site-header-main .btn-primary:hover {
     background-color: #2c3848;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-.site-header.scrolled .btn-primary {
+
+/* Scrolled Bubble Header Styling (#site-header-scrolled) */
+#site-header-scrolled {
+    position: fixed;
+    z-index: 99; /* Slightly lower if main header might overlap during quick scroll, adjust if needed */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: auto;
+    max-width: 230px;
+    left: 50%;
+    top: 15px;
+    transform: translateX(-50%); /* Initial position, no Y transform for visibility toggle */
+    background-color: rgba(40, 45, 55, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 8px 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+    gap: 8px;
+    opacity: 0; /* Start hidden */
+    pointer-events: none;
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out; /* Only fade opacity and optional transform */
+}
+
+#site-header-scrolled .logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+}
+
+/* In HTML, used class logo-img-scrolled, but can target via parent */
+#site-header-scrolled .logo-img-scrolled { /* or #site-header-scrolled .logo-img */
+    height: 28px;
+}
+
+/* Site name is omitted or hidden in HTML for scrolled header */
+/* #site-header-scrolled .site-name { display: none; } */
+
+
+#site-header-scrolled .btn-primary { /* or .btn-primary-scrolled if used */
     padding: 6px 15px;
     font-size: 0.8rem;
     background-color: #FFD700;
     color: #333;
+    white-space: nowrap;
+    /* Transitions for hover effects */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
-.site-header.scrolled .btn-primary:hover {
+#site-header-scrolled .btn-primary:hover {
     background-color: #f0c800;
     transform: translateY(-1px);
     box-shadow: 0 2px 5px rgba(0,0,0,0.15);
 }
+
+
+/* Common styles for logo-link, if any, not covered by parent */
+.logo-link { /* This can be a common base if needed */
+    transition: opacity 0.3s ease-out; /* Example if logo fades on its own hover */
+}
+
+/* Common styles for .site-name, if it were used in both with variations */
+.site-name {
+    /* Base site-name styles if any */
+}
+
+/* Common styles for .btn-primary in headers, if any */
+/* Note: .btn class already provides some base button styling */
 
 
 /* Hero Content (Text Overlay) */
@@ -294,17 +278,47 @@ body {
     .hero-headline {
         font-size: clamp(2.5rem, 12vw, 5rem);
     }
+
+    /* Responsive adjustments for new headers */
+    #site-header-main {
+        padding: 0 15px;
+        top: 15px;
+    }
+    #site-header-main .logo-img {
+        height: 30px;
+    }
+    #site-header-main .site-name {
+        font-size: 1.3em;
+    }
+    #site-header-main .btn-primary {
+        padding: 8px 18px;
+        font-size: 0.85rem;
+    }
+
+    #site-header-scrolled {
+        max-width: 200px;
+        padding: 6px 8px;
+        top: 10px;
+        gap: 6px;
+    }
+    #site-header-scrolled .logo-img-scrolled { /* or #site-header-scrolled .logo-img */
+        height: 24px;
+    }
+    #site-header-scrolled .btn-primary {
+        padding: 5px 10px;
+        font-size: 0.75rem;
+    }
 }
 
 @media (max-width: 480px) {
-    .site-header.scrolled {
-        max-width: 170px; /* Slightly smaller bubble */
+    #site-header-scrolled {
+        max-width: 170px;
         gap: 5px;
     }
-    .site-header.scrolled .logo-img {
+    #site-header-scrolled .logo-img-scrolled { /* or #site-header-scrolled .logo-img */
         height: 20px;
     }
-    .site-header.scrolled .btn-primary {
+    #site-header-scrolled .btn-primary {
         font-size: 0.6rem;
         padding: 4px 8px;
     }
