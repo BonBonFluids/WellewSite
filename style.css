@@ -200,6 +200,15 @@ body {
     line-height: 1.1;
     margin-top: 2vh;
     text-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.hero-headline.fade-out {
+    opacity: 0;
+    transform: translateY(-20px); /* Optional: slight upward movement */
+    pointer-events: none; /* Optional: if it could somehow interfere when invisible */
 }
 
 .hero-cta-container {

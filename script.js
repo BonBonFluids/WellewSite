@@ -3,8 +3,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const headerScrolled = document.getElementById('site-header-scrolled');
     const heroVideo = document.querySelector('.hero-video-bg');
     const heroSection = document.querySelector('.hero-section');
+    const heroHeadline = document.querySelector('.hero-headline'); // Added
 
     const headerScrollTriggerHeight = 50; // Pixels to scroll before changing header style
+    const headlineFadeTriggerHeight = 70; // Pixels to scroll before fading headline
 
     // Basic error checking
     if (!headerMain) {
@@ -18,6 +20,9 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     if (!heroSection) {
         console.error('Hero section element (.hero-section) not found!');
+    }
+    if (!heroHeadline) { // Added
+        console.error('Hero headline element (.hero-headline) not found!');
     }
 
     // Ensure initial states are correct based on CSS (scrolled header should be hidden by default)
@@ -54,6 +59,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 heroVideo.classList.add('scrolled-past');
             } else {
                 heroVideo.classList.remove('scrolled-past');
+            }
+        }
+
+        // Hero headline fade effect
+        if (heroHeadline) {
+            if (scrollY > headlineFadeTriggerHeight) {
+                heroHeadline.classList.add('fade-out');
+            } else {
+                heroHeadline.classList.remove('fade-out');
             }
         }
     });
