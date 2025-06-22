@@ -417,19 +417,98 @@ a:hover {
     text-decoration: none;
 }
 
-/* Footer Styling (Global) */
-footer {
-    background-color: #333;
-    color: #f0f0f0;
-    text-align: center;
-    padding: 25px 20px;
-    margin-top: 40px;
+/* Site Footer Styling */
+.site-footer {
+    background-color: #2c3848; /* Darker, more contrasted background */
+    color: #bdc3c7; /* Lighter grey for text */
+    padding: 50px 0; /* More padding */
+    margin-top: 60px;
     font-size: 0.9rem;
 }
-footer p { /* Overriding general p style for footer */
-    margin-bottom: 0;
-    color: #f0f0f0;
+
+.site-footer .container {
+    /* Uses global .container styles for max-width and centering */
 }
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.footer-column {
+    /* General styling for all columns, if any */
+}
+
+.footer-column-brand .footer-logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin-bottom: 15px; /* Space below logo block */
+}
+
+.footer-column-brand .footer-logo-img {
+    height: 30px; /* Slightly larger than header's scrolled logo */
+    margin-right: 10px;
+}
+
+.footer-column-brand .footer-site-name {
+    font-size: 1.4em;
+    font-weight: 700;
+    color: #ffffff; /* White for site name */
+}
+
+.site-footer .site-tagline {
+    font-size: 0.85rem;
+    color: #95a5a6; /* Softer color for tagline */
+    margin-top: 0;
+}
+
+.footer-heading {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #ffffff; /* White for headings */
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.footer-links {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 8px;
+}
+
+.footer-links li a {
+    color: #bdc3c7; /* Standard link color in footer */
+    text-decoration: none;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+}
+
+.footer-links li a:hover {
+    color: #FFD700; /* Highlight color on hover */
+    padding-left: 5px; /* Slight indent on hover */
+    text-decoration: none; /* Remove underline from general 'a:hover' */
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid #4a5c6a; /* Subtle separator line */
+    font-size: 0.85rem;
+    color: #95a5a6;
+}
+
+.footer-bottom p {
+    margin: 0;
+    color: #95a5a6; /* Ensure p tag color is consistent */
+}
+
 
 /* General Button Styling for content pages */
 /* Base .btn is already defined. This is for specific buttons on content pages. */
@@ -481,4 +560,147 @@ footer p { /* Overriding general p style for footer */
     h1 { font-size: 1.8em; }
     h2 { font-size: 1.4em; }
     h3 { font-size: 1.2em; }
+}
+
+
+/* ================================================ */
+/* New Sections Styling (Features, Pricing, etc.)   */
+/* ================================================ */
+
+.content-section {
+    padding: 60px 20px;
+    background-color: #fff; /* Default for sections, can be overridden */
+}
+
+.content-section:nth-child(even) { /* Alternating background for visual separation */
+    background-color: #f9f9f9;
+}
+
+.container {
+    max-width: 1200px; /* Consistent max-width for content areas */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;  /* Gutters for content within the container */
+    padding-right: 15px;
+}
+
+.section-title {
+    font-size: clamp(2rem, 5vw, 3rem); /* Responsive font size */
+    font-weight: 700;
+    color: #333;
+    text-align: left;
+    margin-bottom: 40px;
+    line-height: 1.2;
+}
+
+/* Features Section */
+.features-section {
+    background-color: #FFFFFF; /* Explicit white background for this section */
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.feature-item {
+    background-color: #f9f9f9; /* Light background for each item */
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.feature-image-container {
+    margin-bottom: 15px;
+}
+
+.feature-image {
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 2/3; /* As per original example */
+    object-fit: contain; /* As per original example */
+    border-radius: 8px; /* Rounded corners for images */
+}
+
+.feature-text .feature-title {
+    font-size: 1.5rem;
+    font-weight: 700; /* Changed from strong tag to CSS */
+    color: #3B4B5F;
+    margin-bottom: 5px;
+}
+
+.feature-text .feature-description {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Pricing Section (Basic Placeholder Styles) */
+.pricing-section {
+    background-color: #f0f0f0; /* Slightly different background */
+}
+
+/* Responsive adjustments for new sections */
+@media (max-width: 992px) { /* Tablet */
+    .features-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+    }
+    .section-title {
+        font-size: clamp(1.8rem, 4vw, 2.5rem);
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 768px) { /* Smaller Tablet / Large Mobile */
+    .content-section {
+        padding: 40px 15px;
+    }
+    .features-grid {
+        grid-template-columns: 1fr 1fr; /* Two columns */
+    }
+    .feature-item {
+        padding: 15px;
+    }
+    .feature-text .feature-title {
+        font-size: 1.3rem;
+    }
+    .feature-text .feature-description {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) { /* Mobile */
+    .features-grid {
+        grid-template-columns: 1fr; /* Single column */
+    }
+    .section-title {
+        font-size: clamp(1.5rem, 6vw, 2rem);
+        text-align: center; /* Center title on mobile */
+    }
+
+    /* Footer responsive adjustments */
+    .footer-grid {
+        grid-template-columns: 1fr; /* Stack columns on mobile */
+        text-align: center; /* Center text in stacked columns */
+    }
+    .footer-column-brand .footer-logo-link {
+        justify-content: center; /* Center logo and site name when stacked */
+    }
+    .footer-heading {
+        margin-top: 20px; /* Add some space above headings when stacked */
+    }
+    .footer-column:first-child .footer-heading {
+        margin-top: 0; /* No top margin for the first heading in brand column if it were there */
+    }
+    .site-footer .site-tagline {
+        text-align: center;
+    }
 }
