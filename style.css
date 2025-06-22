@@ -605,17 +605,34 @@ a:hover {
 }
 
 .feature-item {
-    background-color: #f9f9f9; /* Light background for each item */
+    background-color: transparent; /* Changed: Transparent background by default */
     border-radius: 8px;
     padding: 20px;
     text-align: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: none; /* Changed: No box shadow by default */
+
+    opacity: 0; /* Initial state for animation */
+    transform: translateY(30px); /* Initial state for animation - slightly down */
+    transition: transform 0.5s ease-out, box-shadow 0.3s ease, background-color 0.3s ease, opacity 0.5s ease-out; /* Added opacity and updated transform timing */
 }
+
+.feature-item.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered animation delays */
+.feature-item:nth-child(1).is-visible { transition-delay: 0.1s; }
+.feature-item:nth-child(2).is-visible { transition-delay: 0.2s; }
+.feature-item:nth-child(3).is-visible { transition-delay: 0.3s; }
+.feature-item:nth-child(4).is-visible { transition-delay: 0.4s; }
+/* Add more if there can be more than 4 items in a grid in the future */
+
 
 .feature-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    background-color: #f9f9f9; /* Added: Background color on hover */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1); /* Existing shadow for hover */
 }
 
 .feature-image-container {

@@ -3,7 +3,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const headerScrolled = document.getElementById('site-header-scrolled');
     const heroVideo = document.querySelector('.hero-video-bg');
     const heroSection = document.querySelector('.hero-section');
-    const heroHeadline = document.querySelector('.hero-headline'); // Added
+    const heroHeadline = document.querySelector('.hero-headline');
+    const featureItems = document.querySelectorAll('.feature-item'); // Added for animations
 
     const headerScrollTriggerHeight = 50; // Pixels to scroll before changing header style
     const headlineFadeTriggerHeight = 70; // Pixels to scroll before fading headline
@@ -29,21 +30,19 @@ document.addEventListener('DOMContentLoaded', function () {
     // CSS should handle initial hidden state for headerScrolled.
     // headerMain starts visible by default.
 
-    window.addEventListener('scroll', function () {
+    function handleScrollEffects() {
         const scrollY = window.scrollY;
 
         // Header scroll effect
         if (headerMain && headerScrolled) {
             if (scrollY > headerScrollTriggerHeight) {
                 headerMain.classList.add('header-is-hidden');
-                headerMain.classList.remove('header-is-visible'); // Explicitly remove if set
-
+                headerMain.classList.remove('header-is-visible');
                 headerScrolled.classList.add('header-is-visible');
                 headerScrolled.classList.remove('header-is-hidden');
             } else {
                 headerMain.classList.remove('header-is-hidden');
-                headerMain.classList.add('header-is-visible'); // Explicitly add if needed
-
+                headerMain.classList.add('header-is-visible');
                 headerScrolled.classList.remove('header-is-visible');
                 headerScrolled.classList.add('header-is-hidden');
             }
@@ -52,9 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Video scroll effect
         if (heroVideo && heroSection) {
             const heroSectionHeight = heroSection.offsetHeight;
-            // Trigger video change sooner (e.g., after 10% scroll of hero height)
             const videoScrollTriggerHeight = heroSectionHeight * 0.10;
-
             if (scrollY > videoScrollTriggerHeight) {
                 heroVideo.classList.add('scrolled-past');
             } else {
@@ -70,5 +67,30 @@ document.addEventListener('DOMContentLoaded', function () {
                 heroHeadline.classList.remove('fade-out');
             }
         }
-    });
+    }
+
+    window.addEventListener('scroll', handleScrollEffects);
+
+    // Intersection Observer for Feature Item Animations
+    if (featureItems.length > 0) {
+        const observerOptions = {
+            root: null, // relative to document viewport
+            rootMargin: '0px',
+            threshold: 0.1 // trigger when 10% of the item is visible
+        };
+
+        const observerCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target); // Stop observing once it's visible
+                }
+            });
+        };
+
+        const featureObserver = new IntersectionObserver(observerCallback, observerOptions);
+        featureItems.forEach(item => {
+            featureObserver.observe(item);
+        });
+    }
 });
