@@ -591,11 +591,41 @@ a:hover {
     text-align: left;
     margin-bottom: 40px;
     line-height: 1.2;
+    padding-left: 15px; /* Add padding to align with grid */
+    padding-right: 15px; /* Add padding to align with grid */
+}
+
+/* Styling for the section title when it's inside a .container or .container-full-width for specific centering */
+.container .section-title,
+.container-full-width .section-title {
+    padding-left: 0; /* Reset padding if it's inside a container that already has padding */
+    padding-right: 0;
+}
+
+/* New container class for full width sections */
+.container-full-width {
+    width: 100%;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;  /* Maintain some padding for the content inside */
+    padding-right: 15px;
 }
 
 /* Features Section */
 .features-section {
     background-color: #FFFFFF; /* Explicit white background for this section */
+}
+
+.features-section .section-title {
+    text-align: center; /* Center the title for the features section */
+    /* We can remove the padding-left/right here if the parent content-section provides it,
+       or keep it if content-section padding is 0 for full-bleed sections.
+       Given content-section has padding: 60px 20px, this title will align with that.
+       If we want the title to be truly edge-to-edge before text starts,
+       we'd remove its own padding and ensure content-section also has 0 horizontal padding.
+       For now, let's assume the 20px from content-section is desired for the title too.
+    */
 }
 
 .features-grid {
