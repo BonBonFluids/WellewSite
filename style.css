@@ -612,8 +612,8 @@ a:hover {
     box-shadow: none; /* Changed: No box shadow by default */
 
     opacity: 0; /* Initial state for animation */
-    transform: translateY(30px); /* Initial state for animation - slightly down */
-    transition: transform 0.5s ease-out, box-shadow 0.3s ease, background-color 0.3s ease, opacity 0.5s ease-out; /* Added opacity and updated transform timing */
+    transform: translateY(50px); /* Initial state for animation - slightly down - INCREASED */
+    transition: transform 0.6s ease-out, box-shadow 0.3s ease, background-color 0.3s ease, opacity 0.6s ease-out; /* Added opacity and updated transform timing - INCREASED DURATION */
 }
 
 .feature-item.is-visible {
@@ -622,10 +622,10 @@ a:hover {
 }
 
 /* Staggered animation delays */
-.feature-item:nth-child(1).is-visible { transition-delay: 0.1s; }
-.feature-item:nth-child(2).is-visible { transition-delay: 0.2s; }
-.feature-item:nth-child(3).is-visible { transition-delay: 0.3s; }
-.feature-item:nth-child(4).is-visible { transition-delay: 0.4s; }
+.feature-item:nth-child(1).is-visible { transition-delay: 0.2s; } /* INCREASED */
+.feature-item:nth-child(2).is-visible { transition-delay: 0.4s; } /* INCREASED */
+.feature-item:nth-child(3).is-visible { transition-delay: 0.6s; } /* INCREASED */
+.feature-item:nth-child(4).is-visible { transition-delay: 0.8s; } /* INCREASED */
 /* Add more if there can be more than 4 items in a grid in the future */
 
 
