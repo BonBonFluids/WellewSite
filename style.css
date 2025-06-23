@@ -642,14 +642,14 @@ a:hover {
     box-shadow: none; /* Changed: No box shadow by default */
 
     opacity: 0; /* Initial state for animation */
-    transform: translateY(30px); /* Initial state for animation - slightly down */
-    /* Define transitions for properties that change on hover or entrance */
-    transition: transform 0.3s ease-out,
-                background-color 0.3s ease-out,
-                box-shadow 0.3s ease-out,
-                opacity 0.5s ease-out; /* Opacity is primarily for entrance animation */
-    will-change: transform, box-shadow, background-color; /* Hint to the browser for optimization */
-    /* Set an initial transparent box-shadow to allow smooth transition */
+    transform: translateY(50px); /* Initial state from main (increased) */
+    /* Combined transitions: entrance from main, hover from both, performance from my branch */
+    transition: transform 0.6s ease-out, /* from main */
+                opacity 0.6s ease-out, /* from main */
+                background-color 0.3s ease, /* consistent */
+                box-shadow 0.3s ease; /* consistent */
+    will-change: transform, box-shadow, background-color; /* from my branch for performance */
+    /* Initial transparent box-shadow from my branch for smooth hover */
     box-shadow: 0 0 0 rgba(0,0,0,0);
 }
 
@@ -659,10 +659,10 @@ a:hover {
 }
 
 /* Staggered animation delays */
-.feature-item:nth-child(1).is-visible { transition-delay: 0.1s; }
-.feature-item:nth-child(2).is-visible { transition-delay: 0.2s; }
-.feature-item:nth-child(3).is-visible { transition-delay: 0.3s; }
-.feature-item:nth-child(4).is-visible { transition-delay: 0.4s; }
+.feature-item:nth-child(1).is-visible { transition-delay: 0.2s; } /* INCREASED from main */
+.feature-item:nth-child(2).is-visible { transition-delay: 0.4s; } /* INCREASED from main */
+.feature-item:nth-child(3).is-visible { transition-delay: 0.6s; } /* INCREASED from main */
+.feature-item:nth-child(4).is-visible { transition-delay: 0.8s; } /* INCREASED from main */
 /* Add more if there can be more than 4 items in a grid in the future */
 
 
