@@ -761,3 +761,113 @@ a:hover {
         text-align: center;
     }
 }
+
+/* RSVP Page Specific Styles */
+.rsvp-section {
+    padding-top: 60px; /* Start content below fixed headers */
+    padding-bottom: 60px;
+    text-align: center;
+    min-height: calc(100vh - 250px); /* Adjust 250px based on header/footer height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Adjust padding top if using the landing page class that hides main header initially */
+body.is-landing-page .rsvp-section {
+    padding-top: 120px;
+}
+
+
+.rsvp-form {
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    text-align: left; /* Align form contents to the left */
+}
+
+.rsvp-form h2.section-title { /* If a title is used inside the form area */
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+    font-size: 0.9rem;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus {
+    border-color: #3B4B5F; /* Use a site primary color */
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(59, 75, 95, 0.2); /* Focus ring */
+}
+
+.rsvp-form .btn { /* General button styling within rsvp form */
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+}
+/* Specifically style the primary button if needed, or rely on .btn-primary */
+.rsvp-form .btn-primary {
+    background-color: #3B4B5F; /* Match other primary buttons */
+    color: #fff;
+    border: none;
+}
+.rsvp-form .btn-primary:hover {
+    background-color: #2c3848; /* Darker shade on hover */
+}
+
+
+.thank-you-message {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #e6ffed;
+    border: 1px solid #b2dfc1;
+    border-radius: 4px;
+    color: #2b6430;
+    text-align: center;
+}
+
+/* Ensure the rsvp-section is not affected by landing page specific body class if not desired */
+body:not(.is-landing-page) .rsvp-section {
+    /* Styles for rsvp section when it's not on a page using .is-landing-page body class */
+    /* For example, if headers are different or not present */
+}
+
+/* Responsive for RSVP form */
+@media (max-width: 576px) {
+    .rsvp-form {
+        margin: 20px 15px; /* Add horizontal margin for small screens */
+        padding: 20px;
+    }
+    .rsvp-section {
+        padding-top: 80px; /* Adjust for potentially smaller headers or different layout */
+        min-height: calc(100vh - 200px);
+    }
+    body.is-landing-page .rsvp-section {
+        padding-top: 100px;
+    }
+}

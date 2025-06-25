@@ -93,4 +93,45 @@ document.addEventListener('DOMContentLoaded', function () {
             featureObserver.observe(item);
         });
     }
+
+    // RSVP Form Handling
+    const rsvpForm = document.getElementById('rsvp-form');
+    const thankYouMessage = document.getElementById('thank-you-message');
+
+    if (rsvpForm && thankYouMessage) {
+        rsvpForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent actual form submission
+
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+
+            // Basic validation
+            if (nameInput.value.trim() === '' || emailInput.value.trim() === '') {
+                alert('Please fill in both name and email fields.');
+                return;
+            }
+
+            // Validate email format (simple regex)
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(emailInput.value.trim())) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+
+            // If validation passes:
+            rsvpForm.style.display = 'none'; // Hide the form
+            thankYouMessage.style.display = 'block'; // Show the thank you message
+
+            // Here you would typically send the data to a backend or a service like Formspree.
+            // For this static example, we're just showing a message.
+            console.log('RSVP Submitted:');
+            console.log('Name:', nameInput.value.trim());
+            console.log('Email:', emailInput.value.trim());
+        });
+    } else {
+        // Check if we are on the rsvp page to avoid unnecessary console errors on other pages
+        if (document.querySelector('.rsvp-section')) { // A class specific to rsvp.html body or main section
+            console.warn('RSVP form or thank you message element not found. Form submission will not work.');
+        }
+    }
 });
