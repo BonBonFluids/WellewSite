@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSVP - Wellew</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/images/favicon.png" type="image/png">
+</head>
+<body>
+
+    <!-- Main Wide Header -->
+    <header id="site-header-main" class="site-header-main">
+        <a href="/" class="logo-link">
+            <img src="assets/images/NEW-LOGO-WW.png" alt="Wellew Logo" class="logo-img">
+            <span class="site-name">Wellew</span>
+        </a>
+        <a href="rsvp.html" class="btn btn-primary">TRY WELLEW</a>
+    </header>
+
+    <!-- Scrolled Bubble Header -->
+    <header id="site-header-scrolled" class="site-header-scrolled">
+        <a href="/" class="logo-link">
+            <img src="assets/images/NEW-LOGO-WW.png" alt="Wellew Logo" class="logo-img-scrolled">
+        </a>
+        <a href="rsvp.html" class="btn btn-primary btn-primary-scrolled">TRY WELLEW</a>
+    </header>
+
+    <section class="content-section rsvp-section">
+        <div class="container">
+            <h2 class="section-title">Join the Wellew Waitlist!</h2>
+            <p>Be the first to know when Wellew launches. Sign up below.</p>
+            <form id="rsvp-form" class="rsvp-form">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Sign Up</button>
+            </form>
+            <div id="thank-you-message" class="thank-you-message" style="display:none;">
+                <p>Thank you for RSVPing! We'll be in touch.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column footer-column-brand">
+                    <a href="/" class="footer-logo-link">
+                        <img src="assets/images/NEW-LOGO-WW.png" alt="Wellew Logo" class="footer-logo-img">
+                        <span class="footer-site-name">Wellew</span>
+                    </a>
+                    <p class="site-tagline">Your personalized nutrition companion</p>
+                </div>
+                <div class="footer-column">
+                    <h5 class="footer-heading">About</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Team</a></li>
+                        <li><a href="#">History</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h5 class="footer-heading">Privacy</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms and Conditions</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h5 class="footer-heading">Social</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Twitter/X</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Wellew. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
