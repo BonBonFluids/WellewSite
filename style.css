@@ -10,6 +10,13 @@ body {
     line-height: 1.6;
     color: #333;
     overflow-x: hidden;
+    display: flex; /* Make body a flex container */
+    flex-direction: column; /* Stack children vertically */
+    min-height: 100vh; /* Ensure body takes at least full viewport height */
+}
+
+html {
+    height: 100%; /* Ensure html also takes full height for body min-height to work well */
 }
 
 /* Hero Section Styling */
@@ -768,10 +775,11 @@ a:hover {
     padding-top: 60px; /* Start content below fixed headers */
     padding-bottom: 60px;
     text-align: center;
-    min-height: calc(100vh - 250px); /* Adjust 250px based on header/footer height */
+    /* min-height: calc(100vh - 250px); Removed this */
     display: flex;
     flex-direction: column;
     justify-content: center;
+    flex-grow: 1; /* Allow rsvp-section to grow and fill available space */
 }
 
 /* Adjust padding top if using the landing page class that hides main header initially */
