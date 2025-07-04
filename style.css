@@ -764,6 +764,7 @@ a:hover {
 
 /* RSVP Page Specific Styles */
 .rsvp-section {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     padding-top: 60px; /* Start content below fixed headers */
     padding-bottom: 60px;
     text-align: center;
@@ -782,74 +783,106 @@ body.is-landing-page .rsvp-section {
 .rsvp-form {
     max-width: 500px;
     margin: 30px auto;
-    padding: 30px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 40px; /* Increased padding */
+    background-color: #ffffff; /* Brighter background for the form */
+    border-radius: 12px; /* More rounded corners */
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15); /* Enhanced shadow */
     text-align: left; /* Align form contents to the left */
 }
 
-.rsvp-form h2.section-title { /* If a title is used inside the form area */
-    text-align: center;
-    margin-bottom: 25px;
+/* Styling for the main title "Join the Wellew Waitlist!" */
+.rsvp-section .section-title {
+    font-size: clamp(2.2rem, 6vw, 3.5rem); /* Larger title */
+    color: #2c3848; /* Darker, richer color */
+    margin-bottom: 20px; /* Adjusted spacing */
+    text-align: center; /* Ensure title is centered */
 }
 
+/* Styling for the sub-paragraph "Be the first to know..." */
+.rsvp-section > .container > p { /* Targeting the paragraph directly under container */
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 40px; /* More space before the form */
+    text-align: center; /* Ensure subtitle is centered */
+}
+
+
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 25px; /* Increased spacing */
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
+    margin-bottom: 10px; /* More space below label */
+    font-weight: 700; /* Bolder label */
     color: #333;
-    font-size: 0.9rem;
+    font-size: 1rem; /* Slightly larger label */
 }
 
 .form-group input[type="text"],
 .form-group input[type="email"] {
     width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    padding: 15px; /* Increased padding for inputs */
+    border: 1px solid #ddd; /* Softer border color */
+    border-radius: 6px; /* More rounded inputs */
     box-sizing: border-box;
     font-size: 1rem;
-    transition: border-color 0.3s ease;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Added box-shadow transition */
 }
 
 .form-group input[type="text"]:focus,
 .form-group input[type="email"]:focus {
     border-color: #3B4B5F; /* Use a site primary color */
     outline: none;
-    box-shadow: 0 0 0 2px rgba(59, 75, 95, 0.2); /* Focus ring */
+    box-shadow: 0 0 0 3px rgba(59, 75, 95, 0.25); /* Slightly larger focus ring */
 }
 
 .rsvp-form .btn { /* General button styling within rsvp form */
     width: 100%;
-    padding: 12px;
-    font-size: 1rem;
-    letter-spacing: 0.5px;
+    padding: 15px; /* Increased padding for button */
+    font-size: 1.1rem; /* Larger button text */
+    letter-spacing: 0.8px; /* More letter spacing */
+    font-weight: 700; /* Bolder button text */
 }
 /* Specifically style the primary button if needed, or rely on .btn-primary */
 .rsvp-form .btn-primary {
     background-color: #3B4B5F; /* Match other primary buttons */
     color: #fff;
     border: none;
+    border-radius: 6px; /* Match input field rounding */
 }
 .rsvp-form .btn-primary:hover {
     background-color: #2c3848; /* Darker shade on hover */
+    transform: translateY(-2px); /* Add subtle lift */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Add shadow on hover */
 }
 
 
 .thank-you-message {
-    margin-top: 30px;
-    padding: 20px;
+    margin-top: 40px; /* Increased spacing */
+    padding: 30px; /* Increased padding */
     background-color: #e6ffed;
     border: 1px solid #b2dfc1;
-    border-radius: 4px;
+    border-radius: 8px; /* More rounded corners */
     color: #2b6430;
     text-align: center;
+    display: flex; /* Using flexbox for alignment */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically if there's extra space */
 }
+
+.thank-you-icon {
+    margin-bottom: 15px; /* Space between icon and text */
+    color: #2b6430; /* Match text color or use a specific green */
+}
+
+.thank-you-message p {
+    margin-bottom: 0; /* Remove default bottom margin from paragraph if any */
+    font-size: 1.1rem; /* Slightly larger text */
+    font-weight: 500; /* Medium weight */
+}
+
 
 /* Ensure the rsvp-section is not affected by landing page specific body class if not desired */
 body:not(.is-landing-page) .rsvp-section {
