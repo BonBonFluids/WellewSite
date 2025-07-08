@@ -107,6 +107,7 @@ body {
     background-color: #2c3848;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-decoration: none !important; /* Ensure no underline on hover */
 }
 
 
@@ -163,6 +164,7 @@ body {
     background-color: #f0c800;
     transform: translateY(-1px);
     box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    text-decoration: none !important; /* Ensure no underline on hover */
 }
 
 
@@ -199,7 +201,8 @@ body {
     font-weight: 900;
     line-height: 1.1;
     margin-top: 2vh;
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.3); /* Added subtle light glow */
+    color: #fff; /* Ensure hero headline text is white */
+    /* text-shadow: 0 0 8px rgba(255, 255, 255, 0.3); */ /* Removed halo effect */
     opacity: 1;
     transform: translateY(0);
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
