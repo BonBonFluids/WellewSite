@@ -704,6 +704,110 @@ a:hover {
     background-color: #f0f0f0; /* Slightly different background */
 }
 
+/* ================================================ */
+/* Recommendation Section                             */
+/* ================================================ */
+
+.recommendation-section {
+    position: relative;
+    padding: 0; /* Remove default padding from content-section as background image needs to be edge-to-edge */
+    overflow: hidden; /* Ensure nothing spills out */
+    background-color: #333; /* Fallback background color */
+}
+
+.recommendation-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://via.placeholder.com/1200x800.png?text=Athlete+Yellow+Top');
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+    /* filter: brightness(0.7); Optional: to darken the image if needed */
+}
+
+.recommendation-section .container {
+    position: relative;
+    z-index: 2; /* Above the background image */
+    padding-top: 60px; /* Space from top for profile icon */
+    padding-bottom: 60px; /* Space at bottom */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content like profile and cards grid */
+}
+
+.profile-area {
+    display: flex;
+    flex-direction: column; /* Stack icon and text vertically */
+    align-items: center;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.profile-icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    margin-bottom: 15px; /* Space between icon and text */
+}
+
+.profile-info {
+    color: #fff;
+}
+
+.profile-name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.profile-title {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #f0f0f0; /* Slightly off-white for title */
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+.recommendation-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px; /* Or match your .container max-width if different */
+}
+
+.recommendation-card {
+    background-color: rgba(0, 0, 0, 0.5); /* Dark semi-transparent background */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* For Safari */
+    border-radius: 10px;
+    padding: 25px;
+    color: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border */
+}
+
+.recommendation-card .card-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #FFD700; /* Yellow accent for card titles */
+    margin-bottom: 10px;
+    margin-top: 0; /* Reset margin-top if it's inherited */
+}
+
+.recommendation-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #e0e0e0; /* Light grey for text for readability */
+    margin-bottom: 0; /* Reset margin-bottom if it's inherited */
+}
+
+
 /* Responsive adjustments for new sections */
 @media (max-width: 992px) { /* Tablet */
     .features-grid {
