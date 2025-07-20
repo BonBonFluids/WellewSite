@@ -648,10 +648,6 @@ a:hover {
 
     transform: translateY(50px); /* Initial state from main (increased) */
     /* Combined transitions: entrance from main, hover from both, performance from my branch */
-    transition: transform 0.3s ease-out, /* from main */
-                opacity 0.3s ease-out, /* from main */
-                background-color 0.3s ease, /* consistent */
-                box-shadow 0.3s ease; /* consistent */
     will-change: transform, box-shadow, background-color; /* from my branch for performance */
     /* Initial transparent box-shadow from my branch for smooth hover */
     box-shadow: 0 0 0 rgba(0,0,0,0);
@@ -676,6 +672,7 @@ a:hover {
     transform: translateY(-5px);
     background-color: #f9f9f9; /* Added: Background color on hover */
     box-shadow: 0 8px 25px rgba(0,0,0,0.1); /* Existing shadow for hover */
+    transition: transform 0.2s ease-out, background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .feature-image-container {
