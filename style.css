@@ -648,8 +648,8 @@ a:hover {
 
     transform: translateY(50px); /* Initial state from main (increased) */
     /* Combined transitions: entrance from main, hover from both, performance from my branch */
-    transition: transform 0.6s ease-out, /* from main */
-                opacity 0.6s ease-out, /* from main */
+    transition: transform 0.3s ease-out, /* from main */
+                opacity 0.3s ease-out, /* from main */
                 background-color 0.3s ease, /* consistent */
                 box-shadow 0.3s ease; /* consistent */
     will-change: transform, box-shadow, background-color; /* from my branch for performance */
