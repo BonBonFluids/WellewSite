@@ -196,7 +196,7 @@ body {
     padding: 120px 20px 50px 20px;
 }
 
-.hero-headline {
+h1.hero-headline {
     font-size: clamp(3rem, 10vw, 6.5rem);
     font-weight: 900;
     line-height: 1.1;
@@ -208,7 +208,7 @@ body {
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
-.hero-headline.fade-out {
+h1.hero-headline.fade-out {
     opacity: 0;
     transform: translateY(-20px); /* Optional: slight upward movement */
     pointer-events: none; /* Optional: if it could somehow interfere when invisible */
